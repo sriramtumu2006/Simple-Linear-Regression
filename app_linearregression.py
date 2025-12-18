@@ -1,11 +1,3 @@
-import streamlit as st  
-import seaborn as sns
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score,mean_absolute_error
 
 # Page Config #
 st.set_page_config("Linear Regression",layout="centered")
@@ -90,4 +82,5 @@ st.markdown('<div class="card">',unsafe_allow_html=True)
 bill_amount=st.slider("Total Bill Amount ($)",min_value=float(df.total_bill.min()),max_value=float(df.total_bill.max()),value=30.0)
 tip=model.predict(scaler.transform([[bill_amount]]))[0]
 st.markdown(f'<p class="prediction-box">Predicted Tip Amount: <b>${tip:.2f}</b></p>',unsafe_allow_html=True)
+
 st.markdown('</div>',unsafe_allow_html=True)
